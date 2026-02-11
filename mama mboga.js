@@ -1,5 +1,5 @@
+/*Market Mate that is a simple web application to assist mama mboga in her sales and stock*/
 let vegetables = [];
-
 function loadData() {
     let saved = localStorage.getItem('mboga');
     if (saved) {

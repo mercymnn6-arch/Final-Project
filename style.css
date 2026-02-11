@@ -32,6 +32,7 @@
     color: white;
 
 }
+/*First card layout*/
 .card{
     border-bottom: 4px  solid #2e7d32;
     background-color: white;
@@ -79,12 +80,14 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     
 }
+/*Media queries*/
 @media screen and (min-width:480px) and (max-width:767px) {
     body{
         background-color: black;
         color: white;
 
     }
+    
     @media screen and (min-width:600px) {
         .header{
             flex-direction: row;
@@ -138,6 +141,7 @@ input:focus{
     
 
 }
+/*Button*/
 button-submit{
     background-color: #2e7d32;
     color: white;
@@ -274,3 +278,6 @@ sale-item-name{
     font-style: italic;
     padding: 20px;
 }
+
+
+
