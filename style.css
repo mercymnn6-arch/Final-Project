@@ -1,0 +1,277 @@
+.header{
+    background-color: #2e7d32;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 6px;
+    margin: 20px;
+    border: 2px  solid  black;
+}
+.Dashboard{
+    color: ( #22c55e, #16a34a);
+    background-color: honeydew;
+    
+    
+
+}
+.nav-links a{
+    color: palegreen;
+    font-size: 14px;
+    font-weight: 300;
+    
+}
+.nav-links a :hover{
+    color: green;
+    text-decoration: dotted;
+}
+.logo{
+    color: white;
+
+}
+/First card layout/
+.card{
+    border-bottom: 4px  solid #2e7d32;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1) ;
+}
+
+.summary-cards{
+    display: grid;
+    margin-top: 20px;
+    gap: 15px;
+    
+}
+h2{
+    margin-bottom: 10px;
+    color:#2e7d32;
+}
+.card h3{
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color:lightgray;
+}
+.card  p{
+    font-size: 24px;
+    font-weight: bold;
+    color:darkgrey;
+}
+footer{
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: 40px;
+    color:black;
+    text-transform: uppercase;
+    text-decoration: wavy;
+}
+main{
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+/Media queries/
+@media screen and (min-width:480px) and (max-width:767px) {
+    body{
+        background-color: black;
+        color: white;
+
+    }
+    
+    @media screen and (min-width:600px) {
+        .header{
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 16px;
+        }
+        .card{
+            width: 220px;
+            float: left;
+            padding: 15px;
+        }
+        
+    }
+    
+}
+/add stock.html/
+.stock{
+    background-color: honeydew;
+}
+main{
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto ;
+}
+.form-container{
+    color: #2e7d32;
+    font-family: sans-serif;
+    margin: 20px auto;
+    background-color:honeydew;
+    border-radius: 12px;
+    max-width: 300px;
+}
+.form-row{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #2e7d32;
+}
+input{
+    padding: 8px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    font-size: 16px;
+}
+input:focus{
+    border-color: #2e7d32;
+    
+
+}
+/Button/
+button-submit{
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    
+}
+button :hover{
+    background-color: #1b5e20;
+}
+.message{
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+/about.html/
+.about{
+    background-color: honeydew;
+}
+.about-section{
+    background-color:honeydew;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1000px;
+    border-radius: 30px;
+    line-height: 1.8;
+}
+.about-section h2{
+    color: #2e7d32;
+    font-size: 32px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid lightgreen;
+    padding-bottom: 10px;
+}
+.about-section h3{
+    color: darkgreen;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+.about-section p{
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+}
+.about-section ul{
+    list-style: none;
+    padding-left: none;
+}
+.about-section  li{
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    background: #f1f8e9;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+}
+.about-section li::before{
+    content: normal;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+.about-section h3 +ul  +li{
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    background-color: #e8f5e9;
+}
+
+
+    
+
+
+/sales.html/
+.Sale{
+    background-color: honeydew;
+}
+select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+select:focus{
+    border-color:#388e3c ;
+
+}
+#recent{
+    margin-top: 35px;
+}
+.sale-entry{
+    background-color: #f9f9f9;
+    border-left: 8px solid #388e3c ;
+    padding:20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+sale-info{
+    display: flex;
+    flex-direction: column;
+}
+sale-item-name{
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+
+}
+.sale-meta{
+    font-size: 14px;
+    color: #666;
+
+}
+.sale-amount{
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 20px;
+
+}
+.empty-msg{
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
