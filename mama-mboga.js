@@ -8,8 +8,10 @@ function loadData() {
 }
 
 function saveData() {
-    localStorage.setItem("mboga", JSON.stringify(vegetables));
+    let vegetableText = JSON.stringify(vegetables);
+    localStorage.setItem("mboga", vegetableText);
 }
+
 
 function addVegetable(nameValue, stockValue, buyValue, sellValue) {
     let newVegetable = {
@@ -28,43 +30,52 @@ function updateDashboardDisplay() {
     let stockTotal = 0;
     let totalProfit = 0;
 
-    for (let i = 0; i < vegetables.length; i++) {
-        let vegetable = vegetables[i];
-        stockTotal = stockTotal + (vegetable.stock * vegetable.buyPrice);
-        totalProfit = totalProfit + ((vegetable.sellPrice - vegetable.buyPrice) * vegetable.stock);
+    for (let count = 0; count < vegetables.length; count = count + 1) {
+        let vegetable = vegetables[count];
+
+        let oneStockValue = vegetable.stock * vegetable.buyPrice;
+        stockTotal = stockTotal + oneStockValue;
+
+        let priceDifference = vegetable.sellPrice - vegetable.buyPrice;
+        let oneProfitValue = priceDifference * vegetable.stock;
+        totalProfit = totalProfit + oneProfitValue;
     }
 
-    let totalItemsEl = document.getElementById("total-items");
-    let stockValueEl = document.getElementById("stock-value");
-    let todaySalesEl = document.getElementById("today-sales");
-    let totalProfitEl = document.getElementById("total-profit");
 
-    if (totalItemsEl) totalItemsEl.textContent = itemCount;
-    if (stockValueEl) stockValueEl.textContent = "KSh " + Math.round(stockTotal);
-    if (todaySalesEl) todaySalesEl.textContent = "KSh 0";
-    if (totalProfitEl) totalProfitEl.textContent = "KSh " + Math.round(totalProfit);
+    let totalItemsElement = document.getElementById("total-items");
+    let stockValueElement = document.getElementById("stock-value");
+    let todaySalesElement = document.getElementById("today-sales");
+    let totalProfitElement = document.getElementById("total-profit");
+
+    if (totalItemsElement) totalItemsElement.textContent = itemCount;
+    if (stockValueElement) stockValueElement.textContent = "KSh " + Math.round(stockTotal);
+    if (todaySalesElement) todaySalesElement.textContent = "KSh 0";
+    if (totalProfitElement) totalProfitElement.textContent = "KSh " + Math.round(totalProfit);
 }
 
 function showMessage(textValue) {
-    let addMsg = document.getElementById("add-msg");
-    let saleMsg = document.getElementById("sale-msg");
-    if (addMsg) addMsg.textContent = textValue;
-    if (saleMsg) saleMsg.textContent = textValue;
+    let addMessage = document.getElementById("add-msg");
+    let saleMessage = document.getElementById("sale-msg");
+    if (addMessage) addMessage.textContent = textValue;
+    if (saleMessage) saleMessage.textContent = textValue;
 }
 
 function clearMessage() {
-    let addMsg = document.getElementById("add-msg");
-    let saleMsg = document.getElementById("sale-msg");
-    if (addMsg) addMsg.textContent = "";
-    if (saleMsg) saleMsg.textContent = "";
+    let addMessage = document.getElementById("add-msg");
+    let saleMessage = document.getElementById("sale-msg");
+    if (addMessage) addMessage.textContent = "";
+    if (saleMessage) saleMessage.textContent = "";
 }
 
 function populateSalesDropdown() {
     let dropdown = document.getElementById("item");
-    if (!dropdown) return;
+    if (dropdown == null) {
+        return;
+    }
 
-    while (dropdown.firstChild) {
-        dropdown.removeChild(dropdown.firstChild);
+    let numberOfChildren = dropdown.children.length;
+    for (let clearCount = 0; clearCount < numberOfChildren; clearCount = clearCount + 1) {
+        dropdown.removeChild(dropdown.children[0]);
     }
 
     let defaultOption = document.createElement("option");
@@ -72,16 +83,19 @@ function populateSalesDropdown() {
     defaultOption.textContent = "Select item";
     dropdown.appendChild(defaultOption);
 
-    for (let i = 0; i < vegetables.length; i++) {
-        let vegetable = vegetables[i];
+    for (let count = 0; count < vegetables.length; count = count + 1) {
+        let vegetable = vegetables[count];
         if (vegetable.stock > 0) {
             let option = document.createElement("option");
-            option.value = i;
+            option.value = count;
             option.textContent = vegetable.name + " (" + vegetable.stock.toFixed(1) + "kg)";
             dropdown.appendChild(option);
         }
     }
 }
+
+
+
 
 function handleAddStock(event) {
     event.preventDefault();
