@@ -49,10 +49,15 @@ main {
 .dashboard,
 .stock,
 .Sale,
-.about {
+.about,
+.about-section {
     background-color: honeydew;
     padding: 2rem;
     border-radius: 12px;
+}
+
+.about-section {
+    line-height: 1.8;
 }
 
 .summary-cards {
@@ -137,13 +142,6 @@ button[type="submit"]:hover {
     text-align: center;
     font-weight: bold;
     border-radius: 8px;
-}
-
-.about-section {
-    background-color: honeydew;
-    padding: 2rem;
-    border-radius: 12px;
-    line-height: 1.8;
 }
 
 .about-section h2 {
