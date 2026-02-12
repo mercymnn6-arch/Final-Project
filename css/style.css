@@ -1,59 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
 .header {
     background-color: #2e7d32;
     color: white;
     padding: 16px;
-    text-align: center;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    padding: 6px;
-    margin: 20px;
-    border: 2px solid black;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.Dashboard {
-    color: (#22c55e, #16a34a);
-    background-color: honeydew;
+.logo {
+    font-size: 1.8rem;
+}
 
-
-
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
 .nav-links a {
     color: palegreen;
-    font-size: 14px;
-    font-weight: 300;
-
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.nav-links a :hover {
-    color: green;
-    text-decoration: dotted;
-}
-
-.logo {
+.nav-links a:hover {
     color: white;
+}
 
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.dashboard,
+.stock,
+.Sale,
+.about {
+    background-color: honeydew;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .card {
     border-bottom: 4px solid #2e7d32;
     background-color: white;
-    padding: 15px;
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.summary-cards {
-    display: grid;
-    margin-top: 20px;
-    gap: 15px;
-
-}
-
-h2 {
-    margin-bottom: 10px;
-    color: #2e7d32;
+    text-align: center;
 }
 
 .card h3 {
@@ -66,252 +81,124 @@ h2 {
 .card p {
     font-size: 24px;
     font-weight: bold;
-    color: darkgrey;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    margin-top: 40px;
-    color: black;
-    text-transform: uppercase;
-    text-decoration: wavy;
-}
-
-main {
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-
-}
-
-@media screen and (min-width:480px) and (max-width:767px) {
-    body {
-        background-color: black;
-        color: white;
-
-    }
-
-    @media screen and (min-width:600px) {
-        .header {
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 16px;
-        }
-
-        .card {
-            width: 220px;
-            float: left;
-            padding: 15px;
-        }
-
-    }
-
-}
-
-.stock {
-    background-color: honeydew;
-}
-
-main {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.form-container {
     color: #2e7d32;
-    font-family: sans-serif;
-    margin: 20px auto;
-    background-color: honeydew;
-    border-radius: 12px;
-    max-width: 300px;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #2e7d32;
 }
 
 .form-row {
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 1.5rem;
 }
 
 label {
     font-weight: bold;
-    margin-bottom: 3px;
+    margin-bottom: 0.5rem;
     color: #2e7d32;
+    display: block;
 }
 
-input {
-    padding: 8px;
+input,
+select {
+    width: 100%;
+    padding: 12px;
     border: 1px solid lightgray;
     border-radius: 8px;
     font-size: 16px;
 }
 
-input:focus {
+input:focus,
+select:focus {
     border-color: #2e7d32;
-
-
+    outline: none;
 }
 
-button-submit {
+button[type="submit"] {
     background-color: #2e7d32;
     color: white;
-    padding: 20px;
+    padding: 15px;
     width: 100%;
-    border-radius: 4px;
+    border: none;
+    border-radius: 8px;
     font-size: 18px;
     cursor: pointer;
     font-weight: bold;
-
 }
 
-button :hover {
+button[type="submit"]:hover {
     background-color: #1b5e20;
 }
 
 .message {
-    margin-top: 20px;
+    margin-top: 1rem;
+    padding: 1rem;
     text-align: center;
     font-weight: bold;
-}
-
-.about {
-    background-color: honeydew;
+    border-radius: 8px;
 }
 
 .about-section {
     background-color: honeydew;
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 1000px;
-    border-radius: 30px;
+    padding: 2rem;
+    border-radius: 12px;
     line-height: 1.8;
 }
 
 .about-section h2 {
     color: #2e7d32;
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     border-bottom: 2px solid lightgreen;
-    padding-bottom: 10px;
+    padding-bottom: 0.5rem;
 }
 
 .about-section h3 {
     color: darkgreen;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    font-size: 21px;
-}
-
-.about-section p {
-    font-size: 18px;
-    color: #444;
-    margin-bottom: 30px;
+    margin: 1.5rem 0 1rem 0;
 }
 
 .about-section ul {
     list-style: none;
-    padding-left: none;
+    padding-left: 0;
 }
 
 .about-section li {
-    margin-bottom: 8px;
-    padding: 10px 15px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
     background: #f1f8e9;
     color: #2e7d32;
-    display: flex;
-    align-items: center;
-}
-
-.about-section li::before {
-    content: normal;
-    margin-right: 10px;
-    font-weight: bold;
-    color: #1b5e20;
-}
-
-.about-section h3+ul+li {
-    display: inline-block;
-    margin-right: 10px;
-    font-weight: bold;
-    background-color: #e8f5e9;
-}
-
-code {
-    background-color: lightgray;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    color: #c62828;
-}
-
-
-.Sale {
-    background-color: honeydew;
-}
-
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    cursor: pointer;
-}
-
-select:focus {
-    border-color: #388e3c;
-
-}
-
-#recent {
-    margin-top: 35px;
-}
-
-.sale-entry {
-    background-color: #f9f9f9;
-    border-left: 8px solid #388e3c;
-    padding: 20px;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-sale-info {
-    display: flex;
-    flex-direction: column;
-}
-
-sale-item-name {
-    font-weight: bold;
-    font-size: 18px;
-    color: #333;
-
-}
-
-.sale-meta {
-    font-size: 14px;
-    color: #666;
-
-}
-
-.sale-amount {
-    font-weight: bold;
-    color: #2e7d32;
-    font-size: 20px;
-
 }
 
 .empty-msg {
     text-align: center;
     color: #999;
     font-style: italic;
-    padding: 20px;
+    padding: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    color: #666;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
 }

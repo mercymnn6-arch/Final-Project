@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Mate - Add Stock</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <header>
-        <h1>Market Mate</h1>
+<body class="stock">
+    <header class="header">
+        <h1 class="logo">Market Mate</h1>
         <nav>
             <a href="./index.html">Dashboard</a>
             <a href="./add-stock.html">Add Stock</a>
@@ -18,34 +18,37 @@
             <a href="./about.html">About</a>
         </nav>
     </header>
+
     <main>
-        <section>
+        <section class="form-container">
             <h2>Add New Item to Stock</h2>
-            <form id="stock-form">
+            <form id="add-form">
                 <div class="form-row">
-                    <label for="vegetable-name">Item Name:</label>
-                    <input type="text" id="vegetable-name" required>
+                    <label for="name">Item Name:</label>
+                    <input type="text" id="name" required placeholder="e.g. Tomatoes">
                 </div>
                 <div class="form-row">
-                    <label for="bought-weight">Stock Quantity:</label>
-                    <input type="number" id="bought-weight" min="0" required>
+                    <label for="stock">Stock Quantity (kg):</label>
+                    <input type="number" id="stock" min="0" step="0.1" required placeholder="10">
                 </div>
                 <div class="form-row">
-                    <label for="buy-price">Buy Price (KSh):</label>
-                    <input type="number" id="buy-price" min="0" step="0.01" required>
+                    <label for="buy">Buy Price (KSh per kg):</label>
+                    <input type="number" id="buy" min="0" step="0.01" required placeholder="20">
                 </div>
                 <div class="form-row">
-                    <label for="sell-price">Sell Price (KSh):</label>
-                    <input type="number" id="sell-price" min="0" step="0.01" required>
+                    <label for="sell">Sell Price (KSh per kg):</label>
+                    <input type="number" id="sell" min="0" step="0.01" required placeholder="35">
                 </div>
                 <button type="submit">Add Item</button>
             </form>
             <p id="add-msg" class="message"></p>
         </section>
     </main>
+
     <footer>
         <p>© 2026 Market Mate - Helping mama mboga</p>
     </footer>
+
     <script src="./mama-mboga.js"></script>
 </body>
 
