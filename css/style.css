@@ -114,7 +114,6 @@ body {
 
 }
 
-/*add stock.html*/
 .stock {
     background-color: honeydew;
 }
@@ -181,7 +180,6 @@ button :hover {
     font-weight: bold;
 }
 
-/*about.html*/
 .about {
     background-color: honeydew;
 }
@@ -252,7 +250,7 @@ code {
     color: #c62828;
 }
 
-/*sales.html*/
+
 .Sale {
     background-color: honeydew;
 }
