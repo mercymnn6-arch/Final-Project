@@ -215,13 +215,11 @@ button :hover{
     font-weight: bold;
     background-color: #e8f5e9;
 }
-code{
-    background-color: lightgray;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    color: #c62828;
-}
+
+
+    
+
+
 /*sales.html*/
 .Sale{
     background-color: honeydew;
