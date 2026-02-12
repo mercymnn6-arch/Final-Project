@@ -1,9 +1,9 @@
 let vegetables = [];
 
 function loadData() {
-    let saved = localStorage.getItem("mboga");
-    if (saved) {
-        vegetables = JSON.parse(saved);
+    let savedData = localStorage.getItem("mboga");
+    if (savedData) {
+        vegetables = JSON.parse(savedData);
     }
 }
 
@@ -11,86 +11,123 @@ function saveData() {
     localStorage.setItem("mboga", JSON.stringify(vegetables));
 }
 
-function addVegetable(name, bought, sold, buyPrice, sellPrice) {
-    let veg = {
-        name: name,
-        bought: Number(bought),
-        sold: Number(sold),
-        buyPrice: Number(buyPrice),
-        sellPrice: Number(sellPrice),
-        profit: (Number(sold) * Number(sellPrice)) - (Number(bought) * Number(buyPrice))
+function addVegetable(nameValue, stockValue, buyValue, sellValue) {
+    let newVegetable = {
+        name: nameValue,
+        stock: parseFloat(stockValue),
+        sold: 0,
+        buyPrice: parseFloat(buyValue),
+        sellPrice: parseFloat(sellValue)
     };
-    vegetables.push(veg);
+    vegetables.push(newVegetable);
     saveData();
 }
 
-function getTotals() {
-    let totalProfit = 0;
-    let totalSold = 0;
+function updateDashboardDisplay() {
+    let itemCount = vegetables.length;
+    let stockTotal = 0;
 
-    vegetables.forEach(function (veg) {
-        totalProfit = totalProfit + veg.profit;
-        totalSold = totalSold + veg.sold;
-    });
+    for (let i = 0; i < vegetables.length; i++) {
+        let vegetable = vegetables[i];
+        stockTotal = stockTotal + (vegetable.stock * vegetable.buyPrice);
+    }
 
-    return {
-        profit: totalProfit,
-        sold: totalSold,
-        count: vegetables.length
-    };
+    document.getElementById("total-items").textContent = itemCount;
+    document.getElementById("stock-value").textContent = "KSh " + Math.round(stockTotal);
+    document.getElementById("today-sales").textContent = "KSh 0";
+    document.getElementById("total-profit").textContent = "KSh 0";
 }
 
-function getBestSeller() {
-    let best = { name: " ", profit: 0 };
+function showAddMessage(textValue) {
+    let messageBox = document.getElementById("add-msg");
+    messageBox.textContent = textValue;
+}
 
-    vegetables.forEach(function (veg) {
-        if (veg.profit > best.profit) {
-            best.name = veg.name;
-            best.profit = veg.profit;
+function clearAddMessage() {
+    let messageBox = document.getElementById("add-msg");
+    messageBox.textContent = "";
+}
+
+function populateSalesDropdown() {
+    let dropdown = document.getElementById("item");
+    dropdown.innerHTML = '<option value="">Select item</option>';
+
+    for (let i = 0; i < vegetables.length; i++) {
+        let vegetable = vegetables[i];
+        if (vegetable.stock > 0) {
+            let option = document.createElement("option");
+            option.value = i;
+            option.textContent = vegetable.name + " (" + vegetable.stock + "kg)";
+            dropdown.appendChild(option);
         }
-    });
-
-    return best;
+    }
 }
 
-function saveStock() {
-    let name = document.getElementById("name").value;
-    let stock = document.getElementById("stock").value;
-    let buyPrice = document.getElementById("buy").value;
-    let sellPrice = document.getElementById("sell").value;
+function handleAddStock(event) {
+    event.preventDefault();
 
-    if (name == "") {
-        alert("Enter vegetable name");
+    let nameField = document.getElementById("name").value;
+    let stockField = document.getElementById("stock").value;
+    let buyField = document.getElementById("buy").value;
+    let sellField = document.getElementById("sell").value;
+
+    if (nameField.length < 1) {
+        showAddMessage("Please enter vegetable name");
         return;
     }
 
-    addVegetable(name, stock, 0, buyPrice, sellPrice);
-    alert("Stock saved! Profit: KSh" + vegetables[vegetables.length - 1].profit);
+    addVegetable(nameField, stockField, buyField, sellField);
+    showAddMessage("Stock added successfully");
     document.getElementById("add-form").reset();
+    updateDashboardDisplay();
+
+    setTimeout(clearAddMessage, 3000);
 }
 
-function showResults() {
-    let totals = getTotals();
-    let best = getBestSeller();
+function handleSale(event) {
+    event.preventDefault();
 
+    let selectedIndex = document.getElementById("item").value;
+    let quantityField = document.getElementById("qty").value;
 
-    document.getElementById("today-profit").innerHTML = "KSh" + totals.profit;
-    document.getElementById("today-sales").innerHTML = totals.sold + "kg";
-    document.getElementById("total-items").innerHTML = totals.count;
-    document.getElementById("stock-value").innerHTML = best.name + " (KSh " + best.profit + ")";
+    if (selectedIndex.length < 1) {
+        showAddMessage("Please select an item");
+        return;
+    }
+
+    let vegetable = vegetables[selectedIndex];
+    let quantitySold = parseFloat(quantityField);
+
+    if (quantitySold > vegetable.stock) {
+        showAddMessage("Not enough stock available");
+        return;
+    }
+
+    vegetable.stock = vegetable.stock - quantitySold;
+    vegetable.sold = vegetable.sold + quantitySold;
+    saveData();
+
+    showAddMessage("Sale recorded successfully");
+    document.getElementById("sale-form").reset();
+    populateSalesDropdown();
+    updateDashboardDisplay();
+
+    setTimeout(clearAddMessage, 3000);
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
-    const addForm = document.getElementById("add-form");
+    loadData();
+
+    let addForm = document.getElementById("add-form");
     if (addForm) {
-        addForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            saveStock();
-        });
+        addForm.addEventListener("submit", handleAddStock);
     }
-}
 
-);
+    let saleForm = document.getElementById("sale-form");
+    if (saleForm) {
+        populateSalesDropdown();
+        saleForm.addEventListener("submit", handleSale);
+    }
 
-
+    updateDashboardDisplay();
+});
