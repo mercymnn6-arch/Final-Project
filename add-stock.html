@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Mate - Add Stock</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <h1>Market Mate</h1>
@@ -21,32 +19,32 @@
     <main>
         <section>
             <h2>Add New Item to Stock</h2>
-            <form id="add-form">
+            <form id="stock-form" >
                 <div class="form-row">
-                    <label for="name">Item Name:</label>
-                    <input type="text" id="name" required>
+                    <label for="vegetable-name">Item Name:</label>
+                    <input type="text" id="vegetable-name" required>
                 </div>
                 <div class="form-row">
-                    <label for="stock">Stock Quantity:</label>
-                    <input type="number" id="stock" min="0" required>
+                    <label for="bought-weight">Stock Quantity:</label>
+                    <input type="number" id="bought-weight" min="0" required>
                 </div>
                 <div class="form-row">
-                    <label for="buy">Buy Price (KSh):</label>
-                    <input type="number" id="buy" min="0" step="0.01" required>
+                    <label for="buy-price">Buy Price (KSh):</label>
+                    <input type="number" id="buy-price" min="0" step="0.01" required>
                 </div>
                 <div class="form-row">
-                    <label for="sell">Sell Price (KSh):</label>
-                    <input type="number" id="sell" min="0" step="0.01" required>
+                    <label for="sell-price">Sell Price (KSh):</label>
+                    <input type="number" id="sell-price" min="0" step="0.01" required>
                 </div>
-
                 <button type="submit">Add Item</button>
             </form>
             <p id="add-msg" class="message"></p>
         </section>
-    </main>
-
-    <footer>
+ </main>
+<footer>
         <p>© 2026 Market Mate - Helping mama mboga</p>
-    </footer>
-
+</footer>
     <script src="mama-mboga.js"></script>
+ </body>
+ </html>
+   
