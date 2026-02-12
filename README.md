@@ -26,6 +26,10 @@ Market Mate is  a simple web application created to help mama  mboga(small-scale
 3. Make sure you have a live Server extension installed in VS Code.
 4. Right-click on the html files and select open with live server.
 5. Use the navigation menu to move between pages.
+
+## Live Site
+https://mercymnn6-arch.github.io/Final-Project/
+
 ## Known Issues
 1. Data is only stored in the browser.
 2. No backened database integration.
