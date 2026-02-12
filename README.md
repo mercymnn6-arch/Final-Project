@@ -35,8 +35,12 @@ https://mercymnn6-arch.github.io/Final-Project/
 2. No backened database integration.
 3. No user login system.
 4. Limited advanced features like editing.
+   
 ## Support and contact details
-If you have any questions or ideas or contributions you would like to ask check us out in our git hub pages and email @syntaxsistersgmail.com.
+If you have any questions or ideas or contributions you would like to ask check us out in our git hub pages and email
+@ndungu.patriciawanjiru@gmail.com  
+@michellemugo93@gmail.com 
+@mercymnn6@gmail.com
 ##  Colloborators
 1. Mercy
 2. Patricia
